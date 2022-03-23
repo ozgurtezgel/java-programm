@@ -59,7 +59,7 @@ public class MazeSolver {
                 maze[x][y+1] = 'x';
             }
         }
-        // move to the leftside available?
+        // move to the left side available?
         if (!found && isValidMove(maze, isVisited, x, y-1)) {
             isVisited[x][y-1] = true;
             found = findTheWay(maze, isVisited, x, y-1);
