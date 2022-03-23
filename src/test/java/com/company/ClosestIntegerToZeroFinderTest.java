@@ -1,73 +1,53 @@
 package com.company;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class ClosestIntegerToZeroFinderTest {
 
-
     @Test
-    void findTheClosestIntegerToZeroFirstTest() {
+    @DisplayName("Test with an integer list, expected ok")
+    void shouldFindTheClosestNumber() {
         ClosestIntegerToZeroFinder closestIntegerToZeroFinder = new ClosestIntegerToZeroFinder();
-        List<Integer> integerList = new ArrayList<>();
-        integerList.add(7);
-        integerList.add(5);
-        integerList.add(2);
-        integerList.add(-1);
-        integerList.add(2);
-        integerList.add(-5);
-        integerList.add(7);
-        assertEquals(-1, closestIntegerToZeroFinder.findTheClosestIntegerToZero(integerList));
+        List<Integer> integerList = List.of(7,5,2,-1,2,-5,7);
+        assertEquals(-1, closestIntegerToZeroFinder.findTheClosestNumberToZero(integerList));
     }
 
     @Test
-    void findTheClosestIntegerToZeroSecondTest(){
+    @DisplayName("Test with two numbers with same value, one positive one negative, expected ok")
+    void testWithTwoNumbersWithSameValueOnePositiveOneNegative(){
         ClosestIntegerToZeroFinder closestIntegerToZeroFinder = new ClosestIntegerToZeroFinder();
-        List<Integer> firstIntegerList = new ArrayList<>();
-        firstIntegerList.add(2);
-        firstIntegerList.add(-1);
-        firstIntegerList.add(2);
-        firstIntegerList.add(1);
-        assertEquals(1, closestIntegerToZeroFinder.findTheClosestIntegerToZero(firstIntegerList));
+        List<Integer> firstIntegerList = List.of(2,-1,2,1);
+        assertEquals(1, closestIntegerToZeroFinder.findTheClosestNumberToZero(firstIntegerList));
     }
 
     @Test
-    void findTheClosestIntegerToZeroThirdTest(){
+    @DisplayName("Test with two number with the same absolute, expected ok")
+    void testWithTwoNumbersWithSameAbsoluteValue(){
         ClosestIntegerToZeroFinder closestIntegerToZeroFinder = new ClosestIntegerToZeroFinder();
-        List<Integer> integerList = new ArrayList<>();
-        integerList.add(11);
-        integerList.add(-8);
-        integerList.add(4);
-        integerList.add(-4);
-        integerList.add(7);
-        assertEquals(4, closestIntegerToZeroFinder.findTheClosestIntegerToZero(integerList));
+        List<Integer> integerList = List.of(11,-8,4,-4,7);
+        assertEquals(4, closestIntegerToZeroFinder.findTheClosestNumberToZero(integerList));
     }
 
     @Test
-    void findTheClosestIntegerToZeroFourthTest(){   // test case for a list that includes 0
+    @DisplayName("Test with zero in the list, expected ok")
+    void testWithZeroInTheList(){
         ClosestIntegerToZeroFinder closestIntegerToZeroFinder = new ClosestIntegerToZeroFinder();
-        List<Integer> integerList = new ArrayList<>();
-        integerList.add(11);
-        integerList.add(-8);
-        integerList.add(4);
-        integerList.add(0);
-        assertEquals(0,closestIntegerToZeroFinder.findTheClosestIntegerToZero(integerList));
+        List<Integer> integerList = List.of(11,-8,4,0);
+        assertEquals(0,closestIntegerToZeroFinder.findTheClosestNumberToZero(integerList));
     }
 
     @Test
-    void findTheClosestIntegerToZeroFifthTest(){ // test case for an empty list
+    @DisplayName("Test with an empty list, expected ok")
+    void shouldThrowExceptionWithAnEmptyList(){
         ClosestIntegerToZeroFinder closestIntegerToZeroFinder = new ClosestIntegerToZeroFinder();
         List<Integer> integerList = new ArrayList<>();
-        try {
-            assertEquals(0,closestIntegerToZeroFinder.findTheClosestIntegerToZero(integerList));
-        } catch (EmptyListException e) {
-            System.out.println(e.toString());
-        }
-
+        assertThrows(IllegalArgumentException.class, () -> {closestIntegerToZeroFinder.findTheClosestNumberToZero(integerList);},
+                                                            "IllegalArgumentException was expected");
     }
 }
