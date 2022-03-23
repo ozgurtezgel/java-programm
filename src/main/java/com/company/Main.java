@@ -28,9 +28,9 @@ public class Main {
         isVisitedThirdMaze[x][y] = true;
 
         System.out.println(MazeSolver.findTheWay(firstMaze, isVisitedFirstMaze, x, y));
-        System.out.println("-----------------------------------------------------------------");
+//        System.out.println("-----------------------------------------------------------------");
         System.out.println(MazeSolver.findTheWay(secondMaze, isVisitedSecondMaze, x, y));
-        System.out.println("-----------------------------------------------------------------");
+//        System.out.println("-----------------------------------------------------------------");
         System.out.println(MazeSolver.findTheWay(thirdMaze, isVisitedThirdMaze, x, y));
     }
 }

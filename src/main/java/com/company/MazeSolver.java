@@ -78,9 +78,6 @@ public class MazeSolver {
         if (found && maze[x][y] == 'S') {
             maze[x][y] = 'x';
         }
-        printMaze(maze);
-        System.out.println();
-        System.out.println();
         return found;
     }
 }
