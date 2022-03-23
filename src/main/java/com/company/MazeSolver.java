@@ -16,10 +16,10 @@ public class MazeSolver {
     }
 
     public static boolean isValidMove(char[][] maze, boolean[][] isVisited, int newPosX, int newPosY) {
-        if (newPosX < 0 || newPosX > maze.length-1) {
+        if ((newPosX < 0) || (newPosX > (maze.length - 1))) {
             return false;
         }
-        if (newPosY < 0 || newPosY > maze[newPosX].length-1) {
+        if ((newPosY < 0) || (newPosY > (maze[newPosX].length - 1))) {
             return false;
         }
         if (maze[newPosX][newPosY] == '1') {
@@ -34,9 +34,7 @@ public class MazeSolver {
     public static boolean findTheWay(char[][] maze, boolean[][] isVisited, int x, int y) {
 //        printMaze(maze);
 //        System.out.println("--------------------------------------------------------------------------");
-//        System.out.println("--------------------------------------------------------------------------");
 //        System.out.print("x: " + x + ",   y: " + y);
-//        System.out.println();
 //        System.out.println();
         if (maze[x][y] == 'E') {
             return true;
@@ -44,35 +42,35 @@ public class MazeSolver {
         boolean found = false;
 
         // move to the downside available?
-        if (isValidMove(maze, isVisited, x+1, y)) {
-            isVisited[x+1][y] = true;
-            found = findTheWay(maze, isVisited, x+1, y);
+        if (isValidMove(maze, isVisited, x + 1, y)) {
+            isVisited[x + 1][y] = true;
+            found = findTheWay(maze, isVisited, x + 1, y);
             if (found) {
-                maze[x+1][y] = 'x';
+                maze[x + 1][y] = 'x';
             }
         }
         // move to the right side available?
-        if (!found && isValidMove(maze, isVisited, x, y+1)) {
-            isVisited[x][y+1] = true;
-            found = findTheWay(maze, isVisited, x, y+1);
+        if (!found && isValidMove(maze, isVisited, x, y + 1)) {
+            isVisited[x][y + 1] = true;
+            found = findTheWay(maze, isVisited, x, y + 1);
             if (found) {
-                maze[x][y+1] = 'x';
+                maze[x][y + 1] = 'x';
             }
         }
-        // move to the leftside available?
-        if (!found && isValidMove(maze, isVisited, x, y-1)) {
-            isVisited[x][y-1] = true;
-            found = findTheWay(maze, isVisited, x, y-1);
+        // move to the left side available?
+        if (!found && isValidMove(maze, isVisited, x, y - 1)) {
+            isVisited[x][y - 1] = true;
+            found = findTheWay(maze, isVisited, x, y - 1);
             if (found) {
-                maze[x][y-1] = 'x';
+                maze[x][y - 1] = 'x';
             }
         }
         // move to the upside available?
-        if (!found && isValidMove(maze, isVisited, x-1, y)) {
-            isVisited[x-1][y] = true;
-            found = findTheWay(maze, isVisited, x-1, y);
+        if (!found && isValidMove(maze, isVisited, x - 1, y)) {
+            isVisited[x - 1][y] = true;
+            found = findTheWay(maze, isVisited, x - 1, y);
             if (found) {
-                maze[x-1][y] = 'x';
+                maze[x - 1][y] = 'x';
             }
         }
         if (found && maze[x][y] == 'S') {
