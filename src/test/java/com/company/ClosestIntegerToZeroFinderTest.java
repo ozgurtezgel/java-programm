@@ -15,7 +15,7 @@ class ClosestIntegerToZeroFinderTest {
     void shouldFindTheClosestNumber() {
         ClosestIntegerToZeroFinder closestIntegerToZeroFinder = new ClosestIntegerToZeroFinder();
         List<Integer> integerList = List.of(7,5,2,-1,2,-5,7);
-        assertEquals(-1, closestIntegerToZeroFinder.findTheClosestNumberToZero(integerList));
+        assertEquals(-1, closestIntegerToZeroFinder.findTheClosestIntegerToZero(integerList));
     }
 
     @Test
@@ -23,7 +23,7 @@ class ClosestIntegerToZeroFinderTest {
     void testWithTwoNumbersWithSameValueOnePositiveOneNegative(){
         ClosestIntegerToZeroFinder closestIntegerToZeroFinder = new ClosestIntegerToZeroFinder();
         List<Integer> firstIntegerList = List.of(2,-1,2,1);
-        assertEquals(1, closestIntegerToZeroFinder.findTheClosestNumberToZero(firstIntegerList));
+        assertEquals(1, closestIntegerToZeroFinder.findTheClosestIntegerToZero(firstIntegerList));
     }
 
     @Test
@@ -31,7 +31,7 @@ class ClosestIntegerToZeroFinderTest {
     void testWithTwoNumbersWithSameAbsoluteValue(){
         ClosestIntegerToZeroFinder closestIntegerToZeroFinder = new ClosestIntegerToZeroFinder();
         List<Integer> integerList = List.of(11,-8,4,-4,7);
-        assertEquals(4, closestIntegerToZeroFinder.findTheClosestNumberToZero(integerList));
+        assertEquals(4, closestIntegerToZeroFinder.findTheClosestIntegerToZero(integerList));
     }
 
     @Test
@@ -39,7 +39,7 @@ class ClosestIntegerToZeroFinderTest {
     void testWithZeroInTheList(){
         ClosestIntegerToZeroFinder closestIntegerToZeroFinder = new ClosestIntegerToZeroFinder();
         List<Integer> integerList = List.of(11,-8,4,0);
-        assertEquals(0,closestIntegerToZeroFinder.findTheClosestNumberToZero(integerList));
+        assertEquals(0,closestIntegerToZeroFinder.findTheClosestIntegerToZero(integerList));
     }
 
     @Test
@@ -47,7 +47,7 @@ class ClosestIntegerToZeroFinderTest {
     void shouldThrowExceptionWithAnEmptyList(){
         ClosestIntegerToZeroFinder closestIntegerToZeroFinder = new ClosestIntegerToZeroFinder();
         List<Integer> integerList = new ArrayList<>();
-        assertThrows(IllegalArgumentException.class, () -> {closestIntegerToZeroFinder.findTheClosestNumberToZero(integerList);},
-                                                            "IllegalArgumentException was expected");
+        assertThrows(IllegalArgumentException.class, () -> {closestIntegerToZeroFinder.findTheClosestIntegerToZero(integerList);},
+                "IllegalArgumentException was expected");
     }
 }
