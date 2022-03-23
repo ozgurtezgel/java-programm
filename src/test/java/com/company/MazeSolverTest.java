@@ -102,7 +102,7 @@ class MazeSolverTest {
     void testSolvableThreeByThreeMaze() {
         // arrange
         char[][] maze = new char[][]
-                {{'S', '0', '1'},
+                        {{'S', '0', '1'},
                         {'1', '0', '1'},
                         {'1', '0', 'E'}};
         boolean[][] isVisited = new boolean[maze.length][maze[0].length];
